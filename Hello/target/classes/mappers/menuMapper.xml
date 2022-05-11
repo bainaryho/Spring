@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.inhatc.mapper.menuMapper">
+
+	<insert id="insertMenu">
+		insert into tbl_201844092_menu (mid, mkinds, mname, mprice) values
+		(#{mid}, #{mkinds},#{mname},#{mprice})
+	</insert>
+	<select id="selectMenu" resultType="com.inhatc.domain.MenuVO">
+		select * from tbl_201844092_menu where mid = #{mid}
+	</select>
+		<update id="update">
+		update tbl_201844092_menu set mkinds = #{mkinds}, mname = #{mname}, mprice = #{mprice}
+		where mid = #{mid}
+	</update>
+	<delete id="delete">
+		delete from tbl_201844092_menu where mid = #{mid}
+	</delete>
+	<select id="listCount" resultType="int">
+		select count(*) from tbl_201844092_menu
+	</select>
+	<select id="listAll" resultType="com.inhatc.domain.MenuVO">
+		<![CDATA[
+		select mid, mkinds, mname, mprice
+		from tbl_201844092_menu]]>
+	</select>
+</mapper>

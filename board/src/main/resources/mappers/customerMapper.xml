@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.inhatc.mapper.customerMapper">
+
+	<insert id="insertCustomer">
+		insert into tbl_customerinfo (id, name, address ,phone, email ) values
+		(#{id}, #{name},#{address},#{phone}, #{email})
+	</insert>
+	<select id="selectCustomer" resultType="com.inhatc.domain.CustomerVO">
+		select * from tbl_customerinfo where id = #{id}
+	</select>
+		<update id="update">
+		update tbl_customerinfo set name = #{name}, address = #{address}, phone = #{phone}, email=#{email}
+		where id = #{id}
+	</update>
+	<delete id="delete">
+		delete from tbl_customerinfo where id = #{id}
+	</delete>
+	<select id="listCount" resultType="int">
+		select count(*) from tbl_customerinfo
+	</select>
+	<select id="listAll" resultType="com.inhatc.domain.CustomerVO">
+		<![CDATA[
+		select id, name, address, phone, email
+		from tbl_customerinfo]]>
+	</select>
+</mapper>
