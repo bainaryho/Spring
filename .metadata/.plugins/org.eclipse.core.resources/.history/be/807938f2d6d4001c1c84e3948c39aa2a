@@ -1,0 +1,36 @@
+package com.inhatc.domain;
+
+public class Criteria {
+	public Criteria() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+	
+	private int page;
+	private int perPageNum; //page Num 마다 몇개씩 뿌려줄거냐
+	
+	public Criteria(int page, int perPageNum) {
+		super();
+		this.page = page;
+		this.PerPageNum = perPageNum;
+	}
+
+
+	@Override
+	public String toString() {
+		return "Criteria [page=" + page + ", perPageNum=" + perPageNum + "]";
+	}
+	
+	public int getPage() {
+		return page;
+	}
+	public void setPage(int page) {
+		this.page = page;
+	}
+	public int getPerPageNum() {
+		return perPageNum;
+	}
+	public void setPerPageNum(int perPageNum) {
+		this.perPageNum = perPageNum;
+	}
+}
